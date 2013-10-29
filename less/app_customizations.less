@@ -1,0 +1,235 @@
+/**
+ *   Custom application styles
+ */
+@breadcrumbFont: #c9cdd0;
+@breadcrumbLink:  #a3a5a6;
+
+img.image {
+  vertical-align: text-top;  
+}
+
+.breadcrumb {
+  background-color:   @white;
+  color: @breadcrumbFont;
+  padding-left: 0;
+  margin: 0;
+}
+
+.breadcrumb a.link {
+  color: @breadcrumbLink;
+}
+
+span.parmname, samp.codeph, span.filepath, kbd.userinput {
+    #font > #family > .monospace;
+    font-size: @baseFontSize - 1.5;
+    color: @grayDark;
+    .border-radius(3px);
+}
+
+.box.message span.parmname, .box samp.codeph, .box span.filepath {
+    color: @warningText;
+/*    color: inherit; */
+}
+
+/* Clean up notes */
+.box.message.info, .box.message.confirm, .box.message.warn, .box.message.guidedTour, .box.message.alert, .btb.callout.box.guidedTour {
+    .alert;
+    .alert-block;
+    .media;
+}
+
+div.box div.inner div.media > img {
+    .pull-left;
+    .media-object;
+    vertical-align:top;
+    width: 44px; 
+    height: 55px;
+    margin-right: @baseLineHeight;
+}
+
+div.box.btb div.inner div.media > img {
+    width: 32px; 
+    height: 32px;
+}
+
+
+div.box div.inner div.media div.mediaBd {
+    .media-body;
+    margin-top: 5px;
+} 
+
+div.box div.inner div.media div.mediaBd h4.mbs {
+    .media-heading;
+    display: none;
+}
+
+img.image.image-block {
+  display: block;
+  margin-top: @baseLineHeight;
+  margin-bottom: @baseLineHeight;  
+}
+
+div#navMenu div.brand a {
+    color: @white;
+    text-decoration: none;
+}
+
+span.titlecodeph {
+    #font > #family > .monospace;
+    font-size: smaller;
+}
+
+h1 span.parmname, h1 samp.codeph, h1 span.filepath {
+    font-size: smaller;
+}
+
+h2 span.parmname, h2 samp.codeph, h2 span.filepath {
+    font-size: smaller;
+}
+
+h3 span.parmname, h3 samp.codeph, h3 span.filepath {
+    font-size: smaller;
+}
+
+h4 span.parmname, h4 samp.codeph, h4 span.filepath {
+    font-size: smaller;
+}
+
+h5 span.parmname, h5 samp.codeph, h5 span.filepath {
+    font-size: smaller;
+}
+
+h6 span.parmname, h6 samp.codeph, h6 span.filepath {
+    font-size: smaller;
+}
+
+a span.keyword, a span.parmname, a samp.codeph, a span.filepath {
+   color: @linkColor;
+}
+
+div.shortdesc {
+   margin: 0 0 @baseLineHeight / 2;
+}
+
+
+
+/*
+  PRETTYPRINT DEFINITIONS
+*/
+
+.clipboardBorder { border: 1px solid #00008c; }
+.clipboardDashed { border: 1px dashed #00008c; }
+div.codeSection { position: relative; }
+div.codeCopyToClipboard { margin-top: 20px; }
+div.flash_clipboard { position: absolute; left: 50%; top: -20px; display: inline;}
+
+object {
+    outline: none;
+}
+
+/* APEX CODE, APEX PAGE, AND APEX MIXED DEFINITIONS */
+.apex_page span.multilineComment,
+.apex_code span.onelineComment, .apex_code span.multilineComment,
+.apex_mixed span.onelineComment, .apex_mixed span.multilineComment
+{
+    color: #5d5d5d;
+}
+
+.apex_page span.string, .apex_page span.formula,
+.apex_code span.string, .apex_code span.formula,
+.apex_mixed span.string, .apex_mixed span.formula
+{
+    color: #004600;
+}
+
+.apex_page span.doctype,
+.apex_mixed span.doctype
+{
+    color: #4d7263;
+}
+
+.apex_page span.tag, .apex_page span.vftag,
+.apex_code span.statement, .apex_code span.keyword,
+.apex_mixed span.tag, .apex_mixed span.vftag, .apex_mixed span.statement, .apex_mixed span.keyword,
+.javascript span.event,
+.html span.tag,
+.xml span.tag
+{
+    color: #00008c;
+}
+
+.apex_page span.attribute,
+.apex_mixed span.attribute,
+.html span.attribute,
+.xml span.attribute
+{
+    color: #000099;
+}
+
+.apex_code span.operator, .apex_code span.delimiter,
+.apex_mixed span.operator, .apex_mixed span.delimiter
+{
+    color: #000000;
+}
+
+.action_script span.multilineComment, .action_script span.onelineComment,
+.c_sharp span.multilineComment, .c_sharp span.onelineComment, .c_sharp span.annotation,
+.html span.multilineComment, .html span.onelineComment,
+.javascript span.multilineComment, .javascript span.onelineComment,
+.java span.multilineComment, .java span.onelineComment, .java span.annotation,
+.vba span.onelineComment
+{
+    color: #3F7F5F;
+}
+
+.action_script span.string,
+.c_sharp span.string,
+.html span.string,
+.javascript span.string,
+.java span.string,
+.vba span.string, .vba span.delimiter
+{
+    color: #0000C0;
+}
+
+.action_script span.number,
+.c_sharp span.hexnumber, .c_sharp span.number,
+.html span.hexnumber, .html span.number,
+.javascript span.hexnumber, .javascript span.number,
+.java span.hexnumber, .java span.number
+{
+    /* color: #090; unused */
+}
+
+.action_script span.keyword,
+.c_sharp span.keyword,
+.html span.keyword, .html span.dataType,
+.javascript span.keyword, .javascript span.dataType,
+.java span.keyword,
+.vba span.dataType, .vba span.keyword
+{
+    color: #7F0055;
+}
+
+.action_script span.init
+{
+    color: #FF0000;
+}
+
+.action_script span.as_variable
+{
+    color: #AA7700;
+}
+
+.action_script span.as_trace
+{
+    color: #5d5d5d;
+}
+
+/* use errorMsg to be consistent with the app, errormsg is there for some portal stuff */
+.errorMsg,
+.errormsg {
+    font-weight: bold;
+    font-family: Helvetica,Arial;
+    color: #CC0000;
+}

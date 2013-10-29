@@ -1,0 +1,7 @@
+#Files to ignore
+.env*
+.project
+content/**
+coverage/
+log/
+*.org

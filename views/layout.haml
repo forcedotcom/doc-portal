@@ -1,0 +1,106 @@
+!!! html
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title
+      -# If the app cannot be found, use the default translation, otherwise, use the app's translation
+      - app_name = get_full_app_name(false)
+      = app_name
+    :plain
+      <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+      <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <style type="text/css">
+          .container-fluid { margin-top: 30px;}
+          .brand { width: 60%;}
+        </style>
+      <![endif]-->
+      <!-- For icon font and IE7 -->
+      <!--[if lte IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script><![endif]-->
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    :javascript
+      <!--
+      (function() {
+        if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            msViewportStyle.appendChild(
+            document.createTextNode("@-ms-viewport{width:auto!important}")
+           );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+       }
+       })(); 
+      //-->
+
+    %link{ :href => "/bootstrap/css/portal2.min.css", :type => "text/css", :rel => "stylesheet" }
+    %link{ :href => "/bootstrap/css/bootstrap-responsive.min.css", :type => "text/css", :rel => "stylesheet" }  
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/jquery.js"}
+    %script{ :type => "text/javascript", :src =>"/bootstrap/js/bootstrap.min.js"}
+    %script{ :type => "text/javascript", :src =>"/script/misc.js"}    
+    %script{ :type => "text/javascript", :src => "/resource/clippy.js"}
+    %script{ :type => "text/javascript", :src => "/resource/swfobject.js"}
+      
+    :plain
+      <!--IE7 Hacks -->
+      <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/bootstrap/css/ie7.min.css"></link><![endif]-->
+      <!--[if IE 8]><link rel="stylesheet" type="text/css" href="/bootstrap/css/ie8.min.css"></link><![endif]-->
+  %body
+    - homeURL = (settings.default_topic.nil? || settings.default_topic.empty?) ? "/#{@locale}" : "/#{@locale}/#{@version}/#{settings.default_topic}"
+    %div.navbar.navbar-fixed-top.navbar
+      %div.navbar-inner
+        %div.container#navMenu
+          <!-- Phone nav bar -->
+          %div.visible-phone{:style => "text-align: center !important;"}
+            %div.pull-left
+              -unless(@toc.nil?) #disable the toc trigger on non-topic pages
+                %a.btn.btn-navbar.side-menu-link.pull-left{:type => "button", :style => "margin-top: 2.5px;"}
+                  %span.icon-bar
+                  %span.icon-bar
+                  %span.icon-bar
+            %div
+              %a.logo-phone-offset{:href => "#{homeURL}"}
+                %img{ :src => "/portal_images/logo_phone.png"}
+              %div.pull-right
+                %i#search-trigger.icon-search.icon-white
+          %div.visible-phone
+            %div#search-drop-down{:style => "display: none; margin-top: 1em;"}
+              %form{:action => "/#{@locale}/search", :method => "get"}
+                %label.element-invisible
+                  = t.search.label
+                %span.icon-search.muted.icon-search-in-search-box{:aria => {:hidden => "true"}}
+                %input.search-box{:type=>"text", :placeholder=> t.global.search, :name => "query", :style => "font-size: 16px;"}
+                %div.icon-remove-sign.muted.icon-remove-in-search-box{:aria => {:hidden => "true"}, :onclick => "javascript:clearSearch();"}
+
+          %div.hidden-phone
+            %div.brand{:style => "color: white;"}
+              %a{:href => "#{homeURL}"}
+                %img{ :src => "/portal_images/logo.png"} 
+                %span#portal-title
+                  = app_name
+              -unless (Settings[:BETA].nil? || Settings[:BETA].empty?)
+                %span.label.label-info
+                  = t.global.beta
+            <!-- The logic here has to be -->
+            <!-- If phone, show icon that gives pull down search, else show the form inline -->
+            %form.pull-right{:action => "/#{@locale}/#{@version}/search", :method => "get", :style => "margin-top:7px;"}
+              %label.element-invisible
+                = t.search.label
+              %span.icon-search.muted.icon-search-in-search-box{:aria => {:hidden => "true"}}
+              %input.search-box{:type=>"text", :placeholder=> t.global.search, :name => "query"}
+              %div.icon-remove-sign.muted.icon-remove-in-search-box{:aria => {:hidden => "true"}, :onclick => "javascript:clearSearch();"}
+
+    %div.container-fluid
+      = yield
+
+    %footer.footer
+      %div.row-fluid
+        %div.span12.text-center.muted.small
+          %p
+            = t.footer.copyright
+          %p
+            = t.footer.trademarks
+
+    :javascript
+      $("#search-trigger").click(function () {
+      $("#search-drop-down").toggle('100');
+      });

@@ -1,0 +1,60 @@
+### English US label file.
+### Uses r18n ruby library - see http://r18n.rubyforge.org/
+### Labels are in yaml format - see http://www.yaml.org/spec/1.2/spec.html
+### Important yaml tip - use double quotes to escape special characters
+
+landing_page:
+  popular_content: "Popular Content"
+  first_time: "First Time? Start Here."
+  title: "Title"
+  type: "Type"
+  
+
+global:
+  search: "Search"
+  home: "Home"
+  about: "About"
+  table_of_contents: "Table of Contents"
+  download_pdf: "Download this PDF"
+  learn_about_beta: "Learn about this Beta"
+  beta: "BETA"
+
+search:
+  results: "Search Results"
+  title: "Title"
+  total_with_query: "<b>%1</b><span style='color:grey; font-weight: normal;'> results for </span><b>%2</b>"
+  total_without_query: "Displaying %1 results"
+  range_displayed: "(Displaying %1&#8211;%2)"
+  no_results: "0 results found"
+  previous: "← Previous"
+  next: "Next →"
+  updated: "Updated"
+  label: "Search: "
+  from: "From "
+  tip_button: 'Search Tips'
+  tip_button_hide: 'Hide Tips'
+  tip_title: 'Tips on Searching'
+  tip_intro: 'Enter the terms you want to search for and press enter.'
+  tip_quotes: You can search for a phrase by surrounding it with quotation marks.  For example, "grant access" returns all the topics with the phrase "grant access", but doesn't return topics that contain only the term "grant" or "access", or a topic that contains both terms, but are separated by other words.
+  tip_plus_minus: 'You can use + and - to indicate mandatory or optional entries.  For example: '
+  example:
+    search_string_title: "Search String"
+    returns_title: "Returns"
+    grant: "grant"
+    access: "access"
+    plus: All topics with the term "%1" and, optionally, the term "%2".
+    minus: All topics with the term "%1" but without the term "%2".
+
+# Used in 404.haml and 500.haml
+misc:
+  try_again: Please try again.
+  fourohfour_intro: Sorry, either the page you are looking for does not exist or something went wrong.  Please try again, enter a new search, or visit the <a href="%1">the home page</a>.
+  fivehundred_intro: Sorry, something went wrong.  Please try again, enter a search, or visit the <a href="%1">the home page</a>.
+
+# Add your copyright below
+footer:
+  copyright: ""
+  trademarks: "Various trademarks held by their respective owners."
+
+default:
+  portal_title: "Documentation"

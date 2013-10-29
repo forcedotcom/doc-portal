@@ -1,0 +1,12 @@
+{
+   "_id": "_design/content_views",
+   "language": "javascript",
+   "views": {
+       "deliverable_meta": {
+           "map": "function(doc) {  if (doc.locale && doc.default_topic) { emit(doc.locale, doc); }}"
+       }, 
+       "checksum_by_id" : {
+       		"map": "function(doc) {  if (doc._id && doc.content_hash) { emit(doc._id, doc.content_hash); }}"
+       }
+   }
+}

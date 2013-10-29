@@ -1,0 +1,24 @@
+%div.row-fluid.header
+  %div.span6
+    %span.pull-left#dev-title
+      = get_full_app_name(true, @deliverable_title)
+  %div.span6.visible-desktop
+    %span.pull-right.beta
+      -unless (Settings[:BETA].nil? || Settings[:BETA].empty?)
+        %a{:href => "/#{Settings[:BETA]}", :style => "margin-right: 10px;"}
+          = t.global.learn_about_beta
+
+      -unless (@pdf_url.nil? || @pdf_url.empty?)
+        %button{:onClick => "window.location='#{@pdf_url}'"}
+          = t.global.download_pdf
+
+%div.row-fluid.pagecontent
+  %div.span3.hidden-phone.toccontent{:role => "navigation"} 
+    = @toc
+  %div.span9.content
+    %div.topic-content
+      = @topic
+    
+:javascript
+  changeTocIconState();
+  renderToc();

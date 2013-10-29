@@ -1,0 +1,30 @@
+@import "../vendor/twitter-bootstrap/less/variables.less";
+@import "sfdc-variables.less";
+
+/**
+ *   IE-7 overrides
+ */
+.search-box {
+  height: @baseLineHeight !important;
+  line-height: @baseLineHeight;
+  min-width: 150px;
+}
+.container-fluid {
+  margin-top: -60px;
+  padding-top: 60px; 
+}
+
+//Table Styles
+table, th, tr, td {
+  border-style: separate;
+  border: 1px solid @pageBodyLine;
+  padding: 10px;  
+}
+th {
+  background-color: @tableBackgroundAccent;
+  vertical-align: text-top !important;
+  font-weight: normal !important;
+}
+td {
+    vertical-align: text-top;
+}

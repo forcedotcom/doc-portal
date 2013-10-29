@@ -1,0 +1,26 @@
+%div.row-fluid.pagecontent
+  %div.span12.content
+    %div.topic-content
+      %table
+        %thead
+          %tr.row
+            %th
+              = t.landing_page.title
+            %th
+              = t.landing_page.type
+            %th
+              = t.global.download_pdf
+        %tbody
+          - @rows.each_with_index do |deliverable|
+            %tr.row
+              %td{:data => {:title => "#{t.landing_page.title}"}}
+                %a{:href => "#{@locale}/#{deliverable['value']['default_topic']}"}
+                  = deliverable['value']['title']
+                %div.resource-desc
+                  = deliverable['value']['shortdesc']
+              %td{:data => {:title => "#{t.landing_page.type}"}}
+                = deliverable['value']['type']
+              %td{:data => {:title => "#{t.global.download_pdf}"}}
+                - unless ((deliverable['value']['pdf_url']).nil?)
+                  %a{:href => deliverable['value']['pdf_url']}
+                    PDF

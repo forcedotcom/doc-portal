@@ -1,0 +1,87 @@
+- query = Rack::Utils.escape_html(@query)
+%div.row-fluid.pagecontent
+  - if (@display_facets)
+    %div.span3
+      %div.hidden-phone
+        = haml :search_facets, :layout => false
+
+  %div.content{:class => (@display_facets ? 'span9' : 'span12')}
+    %div.topic-content
+      - hasResults = (@results != nil && @results.length > 0)
+      - if (hasResults)
+        - @page_results = @results.paginate(:page => params[:page], :per_page => Settings[:SEARCH_RESULTS_PER_PAGE])
+        %h2
+          = t.search.total_with_query(@search['total_rows'], query)
+        %p.small{:style => "color: grey; display: #{(@page_results.length > 0) and (@search['total_rows'] > Settings[:SEARCH_RESULTS_PER_PAGE]) ? 'inline' : 'none'}"}
+          - start_item = params[:page] ? 1 + ((params[:page].to_i - 1)* Settings[:SEARCH_RESULTS_PER_PAGE].to_i) : 1
+          - end_item = start_item + Settings[:SEARCH_RESULTS_PER_PAGE] - 1 > @search['total_rows'] ? @search['total_rows'] : start_item + Settings[:SEARCH_RESULTS_PER_PAGE] - 1 
+          = t.search.range_displayed(start_item, end_item)
+        %div
+          %div#results
+          - for result in @page_results do
+            %div.result
+              %a.title{:href => result['fields']['uri']}
+                = Rack::Utils.escape_html(search_result_title((result)))
+              %p
+                -# We want to search for the unescaped query here since that's what we're storing in the db
+                = search_result_highlighted(@query, result)
+            - if (Settings[:LANDING_PAGE] && 'true'.eql?(Settings[:LANDING_PAGE]))
+              %p
+                %a{:href => "/#{@locale}/#{@version}/#{result['fields']['deliverable_home']}"}
+                  = t.search.from
+                  = result["fields"]["deliverable_title"]
+            %hr
+          -# Add the pagination block, using our custom renderer.
+          = will_paginate(@page_results, :previous_label => t.search.previous, :next_label => t.search.next, :renderer => PaginationListLinkRenderer)
+      - else
+        = t.search.no_results
+        %span <b>#{query}</b>
+  
+      %button.btn.btn-info#tip_button{:style => "display: #{hasResults ? 'inline' : 'none'}"}
+        = t.search.tip_button
+        
+      %div#search_tips{:style => "display: #{!hasResults ? 'inline' : 'none'}"}
+        %h2
+          = t.search.tip_title
+        %p
+          = t.search.tip_intro
+        %p
+          = t.search.tip_quotes
+        %p
+          = t.search.tip_plus_minus
+          
+        %table
+          %thead
+            %tr.row
+              %th
+                = t.search.example.search_string_title
+              %th
+                = t.search.example.returns_title
+          %tbody
+            %tr.row
+              %td{:data => {:title => "#{t.search.example.search_string_title}"}}
+                %code
+                  = "#{t.search.example.grant} +#{t.search.example.access}"
+              %td{:data => {:title => "#{t.search.example.returns_title}"}}
+                = t.search.example.plus(t.search.example.grant, t.search.example.access)
+            %tr.row
+              %td{:data => {:title => "#{t.search.example.search_string_title}"}}
+                %code
+                  = "#{t.search.example.grant} -#{t.search.example.access}"
+              %td{:data => {:title => "#{t.search.example.returns_title}"}}
+                = t.search.example.minus(t.search.example.grant, t.search.example.access)
+  
+        :javascript
+          $("#tip_button").click(function () {
+          $("#search_tips").toggle();
+          if ($("#tip_button").text().trim() == "#{t.search.tip_button}")
+          {
+            $("#tip_button").text("#{t.search.tip_button_hide}");
+          }
+          else
+          {
+            $("#tip_button").text("#{t.search.tip_button}");
+          }
+          $('html, body').animate({scrollTop: $("#tip_button").offset().top - 60},1000);
+          $('.pagecontent').eqHeights();
+          });

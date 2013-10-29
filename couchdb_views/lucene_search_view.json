@@ -1,0 +1,12 @@
+{
+   "_id": "_design/lucene_search",
+   "fulltext": {
+       "by_content": {
+           "defaults": {
+               "store": "yes",
+               "termvector": "with_positions_offsets"
+           },
+           "index": ""
+       }
+   }
+}

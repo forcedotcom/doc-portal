@@ -1,0 +1,611 @@
+@iconSpritePath:        "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:   "../img/glyphicons-halflings-white.png";
+
+@import "sfdc-variables.less";
+
+// Reset appearance properties for textual inputs and textarea
+// Declare width for legacy (can't be on input[type=*] selectors or it's too specific)
+input,
+textarea,
+.uneditable-input {
+  width: 190px; // plus 12px padding and 2px border
+}
+
+body { padding-top: 40px; }
+
+
+/*
+ * Custom styles
+ */
+@media (min-width: 980px) {
+  body {
+    padding-top: 50px;
+  }
+  div#navMenu {
+    padding: 5px;
+  }
+}
+
+.pagecontent, .header {
+  max-width: @maxPageWidth;
+  margin:0 auto;
+}
+
+.pagecontent {
+  border: 1px solid @pageBodyLine;
+  .border-radius( 1px );
+  background-color: white;
+}
+
+.topic-content {
+  padding: 0.25em 0.75em 0.25em 0.75em; 
+}
+
+.toccontent {
+  background-color: @tocBackground;
+  border-right: 1px solid @pageBodyLine;
+  height: 100%;
+}
+
+.header {
+  font-size: @fontSizeLarge;
+  /* ToDo: Make this based on variables */
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.header .beta {
+  font-size: @fontSizeSmall;
+}
+
+.header span#dev-title {
+  /* ToDo: Make this based on variables */
+    line-height: 33px;
+}
+
+#navMenu form {
+  position: relative;
+  margin-bottom: 0px;
+}
+#navMenu form input {
+  padding-left: 25px !important;
+  margin-bottom: 0px;
+}
+#navMenu .label-info {
+  color: lightblue;
+  background-color: #17668D;
+  font-size: 10px;
+}
+
+.search-box {
+  height: @baseLineHeight + 10 !important;
+  line-height: @baseLineHeight + 10; //Make IE9 align the text in the center
+  width: 100% !important;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 25px;
+  padding-bottom: 5px;
+}
+//Remove the extra 'x' icon from the input box
+.search-box::-ms-clear {
+  display: none;
+}
+//The large search icon visible on small devices used to make the search input visible
+#search-trigger{
+  font-size: 22px;
+  padding-right: 15px;
+}
+.icon-search-in-search-box, .icon-remove-in-search-box {
+  position: absolute;
+  top: 0px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+}
+.icon-search-in-search-box {
+  left: 0px;
+  padding-left: 5px;
+}
+.icon-remove-in-search-box {
+  right: 0px;
+  padding-right: 5px;
+}
+.icon-white {
+    color: white;
+}
+a.logo-phone-offset {
+    margin-left: -@baseFontSize;
+}
+div#resultsSummary {
+  margin-bottom: 25px;
+}
+div#results {
+  margin-bottom: 30px;
+}
+#results .result {
+  margin-bottom: 25px;
+  padding: 0 30px 0 30px;
+}
+.result a.title {
+    color: #14AED5;
+}
+a.title {
+  font-weight: bold;
+}
+
+div.well.sidebar-nav.visible-desktop {
+    margin-top: 1em;
+}
+
+/*Make images scale to the containing div*/
+img {
+  max-width: 100%;
+}
+
+/* Add bold to figure captions */
+span.figcap {
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3 { line-height: @baseLineHeight * 1.5; }
+
+h1 { font-size: @baseFontSize * 1.75; }
+h2 { font-size: @baseFontSize * 1.5; }
+h3 { font-size: @baseFontSize * 1.25; }
+h4 { font-size: @baseFontSize; } 
+h5 { font-size: @baseFontSize * 0.85; }
+h6 { font-size: @baseFontSize * 0.75; }
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 @baseLineHeight 25px;
+}
+
+li {
+  line-height: @baseLineHeight;
+  margin-bottom: (@baseLineHeight / 2) - 1;
+}
+
+/* Tricky.  We want a bit of extra top margin for p elements in li, but not if the p is the first child element. */
+li p {
+    margin-top:10px;
+}
+
+li p:first-child {
+    margin-top: 0px;
+}
+
+dd,dt {
+    margin-top: @baseLineHeight / 2;
+}
+
+/* When a p is in a div.p, it needs extra space at the top */
+div.p p {
+    margin-top: @baseLineHeight / 2;
+}
+
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+/* Footer */
+
+.footer {
+  padding: 30px 0;
+}
+.footer p {
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-bottom: 0;
+  color: #777;
+  font-size: 85%;
+}
+.footer-links {
+  margin: 10px 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+/* Items, like the search label, that we only want visible to screen readers should use this class */
+.element-invisible { 
+position: absolute !important;
+clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+clip: rect(1px, 1px, 1px, 1px);
+padding:0 !important;
+border:0 !important;
+height: 1px !important; 
+width: 1px !important; 
+overflow: hidden;
+}
+
+.toc-text {
+    margin-right: @baseFontSize * 1.25;
+}
+
+.accordion {
+  margin-bottom: 0px;
+}
+
+/* Override the default accordion group style */
+a .accordion-heading accordion-toggle {
+    padding-top: 0px;
+    display: inline-block;
+}
+
+#side-menu .accordion-group {
+  margin-bottom: 0px;
+  border: 0px;
+  .border-radius(0);
+}
+
+#side-menu ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+#side-menu li {
+    padding: (@baseFontSize / 2) @baseFontSize  (@baseFontSize / 2)  (@baseFontSize / 2);
+    list-style: none;
+    text-indent: -1px;
+    border-bottom: 1px solid #e0e0e2;
+    margin-bottom: 0px;
+}
+
+#side-menu div.leaf{
+    padding: (@baseFontSize / 2) @baseFontSize  (@baseFontSize / 2)  (@baseFontSize / 2);
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+
+#side-menu .accordion-group li {
+    background: @leafBackground;
+    display: block;
+    padding-left: 0px;
+}
+
+#side-menu .accordion-group div.leaf {
+    background: @leafBackground;
+    display: block;
+}
+
+#side-menu .accordion-heading {    
+    padding-top: @baseFontSize / 2;
+    padding-bottom: @baseFontSize / 2; 
+    padding-right: 10px;
+}
+
+#side-menu .accordion-body {
+    width: 100%;
+}
+
+#side-menu li.active, #side-menu div.active {
+    background:   @navbarBackgroundHighlight !important
+}
+
+#side-menu li.active a,#side-menu div.active a {
+    color: white;
+    text-decoration: none;
+}
+
+#side-menu a:link {
+    color: @textColor;
+    text-decoration: none;
+}
+
+#side-menu a:visited {
+    color: @textColor;
+    text-decoration: none;
+}
+
+#side-menu a:hover {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+#side-menu a:active {
+    color: @textColor;
+    text-decoration: none;
+}
+
+#toc a.toc-level-1 {
+   padding-left: @baseFontSize / 2;
+}
+
+#toc li.toc-level-1,#toc div.toc-level-1 {
+   padding-left: 14px;
+}
+
+#toc a.toc-a-block {
+    display: inline-block;
+    width: 88%;
+    text-decoration: none;  
+    padding-top: @baseFontSize / 4;
+}
+
+#toc a.toc-plus-block {
+    text-decoration: none;  
+    padding-top: @baseFontSize / 2;
+    display: inline-block; 
+}
+
+//Direct siblings should have their width be 10%
+#toc a.toc-a-block + a.toc-plus-block {
+  width: 10%;
+}
+
+#toc a 
+{
+    width: 100%;
+    text-decoration: none;  
+    display: inline-block; 
+}
+
+#toc li.toc-level-2,#toc div.toc-level-2 {
+   padding-left: 32px;
+} 
+
+#toc li.toc-level-3,#toc div.toc-level-3 {
+   padding-left: 48px;
+} 
+
+#toc li.toc-level-4,#toc div.toc-level-4 {
+   padding-left: 64px;
+}
+
+#toc li.toc-level-4,#toc div.toc-level-4 {
+   padding-left: 80px;
+}
+
+#toc .icon-plus {
+  color: @iconPlus;
+}
+
+#toc .icon-minus {
+  color: @iconMinus;
+}
+
+#side-menu div.active a i {
+  color: @white !important;
+}
+
+/*Remove upper case nested nav lists*/
+.nav-header > .nav-list {
+    text-transform: none;
+}
+
+/*
+ * Full tables for desktop
+ */
+@media (min-width: 768px) {
+  table {
+    .table;
+    .table-bordered;
+    border-color:   @pageBodyLine;
+  }
+  
+  th {
+    background-color: @tableBackgroundAccent;
+    vertical-align: text-top !important;
+    font-weight: normal !important;
+  }
+  
+  td {
+      vertical-align: text-top;
+  }
+}
+
+/*
+ * Tables need scroll bars when the frame is too small
+ */
+div.colSort {
+    overflow: auto;
+}
+
+@media (max-width: 767px) {
+    div.colSort {
+        overflow: visible;
+    }
+}
+
+/*
+ * Responsive tables for mobile
+ */
+@media (max-width: 767px) {
+    /* Force table to not be like tables anymore */
+    table { 
+      display: block;
+      width: 100%;
+      border-collapse: separate;
+      empty-cells: hide;
+      overflow: visible;
+    }
+    
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead { 
+      position:absolute;  /* Hides table head but not using display none */
+      top:-1000em;
+      left:-1000em;
+    }
+    
+    /*Lay out each column vertically*/
+    tbody, tr, th, td {
+      display: block;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+    
+    tr {
+      margin-bottom: 15px !important;
+    }
+    
+    td {
+      float:left;
+      border: 1px solid #D3D3D3;
+      width: 100%;
+      padding: 0 10px 10px 10px;
+    }
+    
+    /*Print data-title first*/
+    td[data-title]:before {
+      display: block;
+      font-weight: bold;
+      content: attr(data-title);
+      background-color: @tableBackgroundAccent;
+      border-bottom: 1px solid #D3D3D3;
+      font-weight: normal;
+      margin-left: -10px;
+      margin-right: -10px;
+      padding: 10px;
+    }
+    
+    td:empty {
+      display: none;
+    }
+    
+    td[headers*=" "] {
+      margin-top: 15px;
+      padding-bottom: 0;
+      border: none;
+    }
+  }
+
+/* Override padding of navbar for non-desktop devices */
+@media (max-width: 979px) {
+  .pagecontent {
+    padding-top: 0px;
+  }
+  .navbar-fixed-top {
+      margin-bottom: 0px !important;
+  } 
+  .header {
+      margin-top: 15px;
+  }
+}
+
+/*
+ * Ugly hack.  Must be removed when we support sequence for next/previous without numbering in the parent.
+ */ 
+
+div.related-links ol.olchildlinks {
+    list-style-type: disc;
+}
+
+/*
+  BEGIN ICON STYLES
+*/
+span.icon_24x24 {
+    padding-right: 24px;
+    height: 24px;
+    vertical-align: text-bottom;
+    display: inline-block;
+}
+
+span.icon_20x20 {
+    padding-right: 20px;
+    height: 20px;
+    vertical-align: text-bottom;
+    display: inline-block;
+}
+
+span.icon_20x15 {
+    padding-right: 20px;
+    height: 15px;
+    vertical-align: text-bottom;
+    display: inline-block;
+}
+
+span.icon_20x16 {
+    padding-right: 20px;
+    height: 16px;
+    vertical-align: text-bottom;
+    display: inline-block;
+}
+
+span.icon_16x16 {
+    padding-right: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+    display: inline-block;
+}
+
+span.icon_24x18 {
+    padding-right: 24px;
+    height: 18px;
+    vertical-align: text-bottom;
+    display: inline-block;
+}
+
+span.icon_32x32 {
+    padding-right: 32px;
+    height: 32px;
+    vertical-align: text-bottom;
+    display: inline-block;
+}
+
+/* Don't add commas to the clips below - they won't work in IE or Eclipse */
+img.icon_24x24 {
+    clip: rect(0px 24px 24px 0px);
+    position:absolute;
+}
+
+img.icon_16x16 {
+    clip: rect(0px 16px 16px 0px);
+    position:absolute;
+}
+
+img.icon_32x32 {
+    clip: rect(0px 32px 32px 0px);
+    position:absolute;
+}
+
+img.icon_20x20 {
+    clip: rect(0px 20px 20px 0px);
+    position:absolute;
+}
+
+img.icon_20x15 {
+    clip: rect(0px 20px 15px 0px);
+    position:absolute;
+}
+
+img.icon_20x16 {
+    clip: rect(0px 20px 16px 0px);
+    position:absolute;
+}
+
+img.icon_24x18 {
+   clip: rect(0px 24px 18px 0px);
+    position:absolute;
+}
+
+/* Add formatting for figure and table captions (title element in DITA XML) */
+.fignone, caption {
+    font-size:90%;
+    font-weight:bold;
+    margin:1em 0pt;
+}
+
+
+
+/* for images on their own line */
+.image-block {
+    display:block;
+    margin:1em 0pt;
+}
+
+/*
+  END ICON STYLES
+*/

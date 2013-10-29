@@ -1,0 +1,13 @@
+{
+   "_id": "_design/search",
+   "indexes": {
+       "by_content": {
+           "analyzer": {
+               "name": "perfield",
+               "default": "english",
+               "fields": ""
+           },
+           "index": ""
+       }
+   }
+}

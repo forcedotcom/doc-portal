@@ -1,0 +1,35 @@
+%div.row-fluid.pagecontent
+  %div.span12.content
+    %div.topic-content
+      %p
+        = t.misc.fivehundred_intro("/#{@locale}/#{@version}/#{settings.default_topic}")
+      %div{:class => "data colSort"}
+        %h1
+          = t.search.tip_title
+        %p
+          = t.search.tip_intro
+        %p
+          = t.search.tip_quotes
+        %p
+          = t.search.tip_plus_minus
+      
+      %table
+        %thead
+          %tr.row
+            %th
+              = t.search.example.search_string_title
+            %th
+              = t.search.example.returns_title
+        %tbody
+          %tr.row
+            %td{:data => {:title => "#{t.search.example.search_string_title}"}}
+              %code
+                = "#{t.search.example.grant} +#{t.search.example.access}"
+            %td{:data => {:title => "#{t.search.example.returns_title}"}}
+              = t.search.example.plus(t.search.example.grant, t.search.example.access)
+          %tr.row
+            %td{:data => {:title => "#{t.search.example.search_string_title}"}}
+              %code
+                = "#{t.search.example.grant} -#{t.search.example.access}"
+            %td{:data => {:title => "#{t.search.example.returns_title}"}}
+              = t.search.example.minus(t.search.example.grant, t.search.example.access)
