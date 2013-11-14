@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<meta name="DC.Type" content="task"></meta>
+<meta name="DC.Title" content="Change labels in the portal"></meta>
+<meta name="abstract" content="All the text in that portal that isn’t in your topics or the table of contents are labels. Updating the text requires updating a label file."></meta>
+<meta name="description" content="All the text in that portal that isn’t in your topics or the table of contents are labels. Updating the text requires updating a label file."></meta>
+<meta name="DC.Relation" scheme="URI" content="welcome.htm"></meta>
+<meta name="DC.Relation" scheme="URI" content="welcome.htm"></meta>
+<meta name="DC.Relation" scheme="URI" content="welcome.htm"></meta>
+<meta name="prodname" content="Red Sofa Help System"></meta>
+<meta name="version" content="0.1"></meta>
+<meta name="DC.Creator" content="Steve Anderson"></meta>
+<meta name="copyright" content="salesforce.com 2013" type="primary"></meta>
+<meta name="DC.Rights.Owner" content="salesforce.com 2013" type="primary"></meta>
+<meta name="DC.Date.Created" content="11/06/2013"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="task_kxj_v4f_dm"></meta>
+<link rel="stylesheet" type="text/css" href="help.css"></link>
+<title>Change labels in the portal</title>
+<meta name="SFDC.Type" content=""></meta>
+<meta name="SFDC.Technology" content=""></meta>
+<meta name="SFDC.Title" content=""></meta>
+<meta name="SFDC.TOC" content="redsofa_toc.json"></meta>
+<meta name="SFDC.RelatedPDF" content="redsofa.pdf"></meta>
+<meta name="SFDC.MainTopic" content="/welcome.htm"></meta>
+<meta name="SFDC.DeliverableDirectory" content="/"></meta>
+
+</head>
+<body id="task_kxj_v4f_dm"><a name="task_kxj_v4f_dm"><!-- --></a>
+
+<a name="top"><!-- --></a><div class="breadcrumb"><a href="welcome.htm" class="link" title="Home">Home</a> &gt; <a href="welcome.htm" class="link">Welcome!</a> &gt; </div>
+
+
+    <h1 class="helpHead1"><a name="heading_1_1"><!-- --></a>Change labels in the portal</h1>
+
+    
+    <div class="body taskbody"><div class="shortdesc">All the text in that portal that isn’t in your topics or the table of contents are labels. Updating the text requires updating a label file.</div>
+
+        <ol class="ol steps enumList ">
+            <li class="li step">
+                <span class="ph cmd">In you favorite UTF-8 aware text editor, open the file <span class="ph filepath">i18n/<var class="keyword varname">lang</var>.yml</span> where <var class="keyword varname">lang</var> represents the language or language-locale combo for the labels you are trying to change.</span>
+            </li>
+
+            <li class="li step">
+                <span class="ph cmd">Edit the label you want to change.</span>
+                 
+                    <p class="p">Note that the labels are displayed using the r18n ruby library - see <a href="http://r18n.rubyforge.org/" class="xref" target="_blank">http://r18n.rubyforge.org/</a> for more information.</p>
+
+                    <div class="p">The labels are in yaml format - see <a href="http://www.yaml.org/spec/1.2/spec.html" class="xref" target="_blank">http://www.yaml.org/spec/1.2/spec.html</a> for more information. <div class="box message info"><div class="inner"><div class="bd"><div class="media"><img class="img mtm" src="/img/msg_icons/helpNote_icon.gif" alt="Note"></img><div class="mediaBd"><h4 class="mbs">Note</h4><p>
+Use double quotes to escape special characters.</p></div></div></div></div></div>
+</div>
+
+                
+            </li>
+
+            <li class="li step">
+                <span class="ph cmd">Restart your server to see the label changes.</span>
+            </li>
+
+        </ol>
+
+    </div>
+
+<div id="sfdc:seealso" class="related-links"></div>
+
+</body>
+</html>

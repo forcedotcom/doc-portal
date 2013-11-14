@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<meta name="DC.Type" content="topic"></meta>
+<meta name="DC.Title" content="Welcome!"></meta>
+<meta name="DC.Relation" scheme="URI" content="replace_sample_content.htm"></meta>
+<meta name="DC.Relation" scheme="URI" content="change_styling.htm"></meta>
+<meta name="DC.Relation" scheme="URI" content="change_labels.htm"></meta>
+<meta name="DC.Relation" scheme="URI" content="portal_configuration.htm"></meta>
+<meta name="DC.Relation" scheme="URI" content="welcome.htm"></meta>
+<meta name="prodname" content="Red Sofa Help System"></meta>
+<meta name="version" content="0.1"></meta>
+<meta name="DC.Creator" content="Steve Anderson"></meta>
+<meta name="copyright" content="salesforce.com 2013" type="primary"></meta>
+<meta name="DC.Rights.Owner" content="salesforce.com 2013" type="primary"></meta>
+<meta name="DC.Date.Created" content="11/06/2013"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="topic_ocb_kk4_bm"></meta>
+<link rel="stylesheet" type="text/css" href="help.css"></link>
+<title>Welcome!</title>
+<meta name="SFDC.Type" content=""></meta>
+<meta name="SFDC.Technology" content=""></meta>
+<meta name="SFDC.Title" content=""></meta>
+<meta name="SFDC.TOC" content="redsofa_toc.json"></meta>
+<meta name="SFDC.RelatedPDF" content="redsofa.pdf"></meta>
+<meta name="SFDC.MainTopic" content="/welcome.htm"></meta>
+<meta name="SFDC.DeliverableDirectory" content="/"></meta>
+
+</head>
+<body id="topic_ocb_kk4_bm"><a name="topic_ocb_kk4_bm"><!-- --></a>
+
+<a name="top"><!-- --></a><div class="breadcrumb"><a href="welcome.htm" class="link" title="Home">Home</a> &gt; </div>
+
+
+  <h1 class="helpHead1"><a name="heading_1_1"><!-- --></a>Welcome!</h1>
+
+  <div class="body">
+    <p class="p">If you are reading this in your own portal, congratulations, it’s working!  </p>
+
+    <p class="p">If you are reading this locally, start with the <a href="http://github.com" class="xref" target="_blank">README file in the github repository</a> for instructions on how to get the portal up and running first.</p>
+
+    <div class="section"><h2 class="helpHead2"><a name="heading_2_1"><!-- --></a>What now?</h2>
+
+      
+      <p class="p">Great question. </p>
+
+      <p class="p">This is one of the default topics included as sample content in the portal. More than anything it’s designed to give you reassurance that the portal is working. Why not start by replacing it with your own content?</p>
+
+      <p class="p">There’s a topic on replacing the default topics with your own content. A link to it is at the bottom of this topic, but instead of looking for that, why not test <a href="/search?query=replace" class="xref" target="_blank">search</a>?</p>
+
+      <p class="p">That search link illustrates something nice about this portal - everything is a bookmarkable link, including searches.   Feel free to bookmark them, give them to your users, etc.</p>
+
+      <p class="p">Once you’re gotten your own content in the portal, you probably want to change the styling of the portal. Perhaps the header color is just the wrong shade of blue, or you want to increase the font size. The portal uses Twitter Bootstrap for styling; they have great documentation on changing the look and feel of topics using their framework. There’s also a short topic on that in this sample content.</p>
+
+      <p class="p">The next common thing is to change strings (from here on out I’ll call them labels) within the portal, things like the portal name or the footer of each page.  There’s a topic on how to do that, too.  It also tells you how to add labels for other languages.</p>
+
+      <p class="p">If you want to modify the portal, or the metadata in the database, you’re going to have to learn the portal code itself.  It’s written using Sinatra, a Ruby DSL, with all the content stored in Apache CouchDB.  Maybe some day I’ll document some stuff related to that, but until then, read the code, Luke!</p>
+
+      <p class="p">If you want to help, send me a push request.  Due to the nature of this portal, I may need to ask you to agree to some licensing requirements (yep, I work with lawyers), but don’t let that scare you.  I’d appreciate your help.</p>
+
+    </div>
+
+  </div>
+
+<div id="sfdc:seealso" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="replace_sample_content.htm">Replace sample content with your own</a></strong><br></br>
+Replace the sample content with your own by removing the files in <span class="ph filepath">content/en-us/sample</span>, then adding your own content in a language specific subdirectory of <span class="ph filepath">content</span>. </li>
+<li class="link ulchildlink"><strong><a href="change_styling.htm">Change the styling of the portal</a></strong><br></br>
+ Changing the styling of the portal requires you to add Twitter Bootstrap and Fontawesome as git submodules.  Then you update the styles by editing LESS files, which are then compiled to CSS.</li>
+<li class="link ulchildlink"><strong><a href="change_labels.htm">Change labels in the portal</a></strong><br></br>
+All the text in that portal that isn’t in your topics or the table of contents are labels. Updating the text requires updating a label file.</li>
+<li class="link ulchildlink"><strong><a href="portal_configuration.htm">Portal Configuration</a></strong><br></br>
+There are configuration options that affect the portal.</li>
+</ul>
+</div>
+
+</body>
+</html>
