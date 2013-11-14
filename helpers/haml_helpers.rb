@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Copyright (c) 2013,salesforce.com 
 #All rights reserved.
 
@@ -26,7 +27,7 @@
 #POSSIBILITY OF SUCH DAMAGE.
 
 
-# -*- coding: utf-8 -*-
+
 module HamlHelpers
   
   # Return the value of the title of the topic as part of search results.
