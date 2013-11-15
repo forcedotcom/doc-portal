@@ -14,6 +14,8 @@ This is a documentation portal written in Ruby, using Sinatra for routing and Co
 * Add Bootstrap,  version 2.3.2, and Font Awesome, as submodules with the following rake command `rake bootstrap:init`
 * Customize the files in `less/`.  See [http://lesscss.org/](http://lesscss.org/) for details on less.
 * Run `rake bootstrap:make`
+* Add the bootstrap files source control - `git add public/bootstrap`,
+  then `git commit -m "Adding styling"`
 * If you have specific metadata requirements update `lib/db/db_transaction.rb`
 * Add you html files to content/*lang-local/deliverable_name*
 * Create a deliverable_metadata.json file in content/*lang-local/deliverable_name*
