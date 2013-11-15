@@ -100,10 +100,8 @@ namespace :bootstrap do
       `git submodule add -f https://github.com/twbs/bootstrap.git vendor/twitter-bootstrap`
       `git submodule add -f https://github.com/FortAwesome/Font-Awesome.git vendor/fontawesome`
       `git submodule --quiet update`
-      `cd vendor/twitter-bootstrap`
-      `git checkout --quiet v2.3.2`
-      `cd vendor/fontawesome`
-      `git checkout --quiet v3.2.1`
+      `cd vendor/twitter-bootstrap && git checkout --quiet v2.3.2`
+      `cd vendor/fontawesome && git checkout --quiet v3.2.1`
     end
   end
 
@@ -121,7 +119,7 @@ namespace :bootstrap do
     Dir.mkdir("public/bootstrap/js") unless Dir.exists?("public/bootstrap/js")
     Dir.mkdir("public/bootstrap/font") unless Dir.exists?("public/bootstrap/font")
     `cd vendor/twitter-bootstrap && git checkout --quiet v2.3.2`
-    `cd vender/fontawesome && git checkout --quiet v3.2.1`
+    `cd vendor/fontawesome && git checkout --quiet v3.2.1`
     `cd ../..`
     if command_exists?('lessc') && command_exists?('uglifyjs')
       `lessc -x less/portal2.less > public/bootstrap/css/portal2.min.css`
