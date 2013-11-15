@@ -79,8 +79,9 @@ task :initialize_heroku, :app_name do |t, args|
     
     sh 'heroku addons:add cloudant:oxygen'
     sh 'heroku addons:add memcachier:dev'
-    sh 'heroku addons:add newrelic:standard'
+    sh 'heroku addons:add newrelic:stark'
     sh 'heroku addons:add papertrail:choklad'
+    sh 'git push heroku master'
     sh 'heroku config:add RACK_ENV=production'
     puts 'Adding heroku add-on environment variables to the .env file'
     sh 'heroku config -s > .env'
@@ -120,7 +121,6 @@ namespace :bootstrap do
     Dir.mkdir("public/bootstrap/font") unless Dir.exists?("public/bootstrap/font")
     `cd vendor/twitter-bootstrap && git checkout --quiet v2.3.2`
     `cd vendor/fontawesome && git checkout --quiet v3.2.1`
-    `cd ../..`
     if command_exists?('lessc') && command_exists?('uglifyjs')
       `lessc -x less/portal2.less > public/bootstrap/css/portal2.min.css`
       `lessc -x vendor/twitter-bootstrap/less/responsive.less > public/bootstrap/css/bootstrap-responsive.min.css`
