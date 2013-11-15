@@ -109,17 +109,28 @@ namespace :bootstrap do
 
   # We're on v2.3.2 now, and that's where we have to stay
   desc 'Sync twitter bootstrap repo'
-  task :update_repo => :setup do
+  task :update_repo do
     `cd vendor/twitter-bootstrap; git checkout --quiet v2.3.2; git pull --quiet origin master; git checkout --quiet v2.3.2`
   end
 
   # desc 'Compile the assets. Requires lessc and uglifyjs'
   # To install: npm install -g less uglify-js
   task :make do
+    Dir.mkdir("public/bootstrap") unless Dir.exists?("public/bootstrap")
+    Dir.mkdir("public/bootstrap/css") unless Dir.exists?("public/bootstrap/css")
+    Dir.mkdir("public/bootstrap/js") unless Dir.exists?("public/bootstrap/js")
+    Dir.mkdir("public/bootstrap/font") unless Dir.exists?("public/bootstrap/font")
+    `cd vendor/twitter-bootstrap && git checkout --quiet v2.3.2`
+    `cd vender/fontawesome && git checkout --quiet v3.2.1`
+    `cd ../..`
     if command_exists?('lessc') && command_exists?('uglifyjs')
       `lessc -x less/portal2.less > public/bootstrap/css/portal2.min.css`
       `lessc -x vendor/twitter-bootstrap/less/responsive.less > public/bootstrap/css/bootstrap-responsive.min.css`
       `uglifyjs vendor/twitter-bootstrap/docs/assets/js/bootstrap.js -nc > public/bootstrap/js/bootstrap.min.js`
+      cp "vendor/twitter-bootstrap/docs/assets/js/jquery.js", "public/bootstrap/js/jquery.js"
+      Dir.glob('vendor/fontawesome/font/*.*').each do |file|
+        cp file, "public/bootstrap/font/"
+      end
     else
       puts "You need both lessc and uglifyjs on your path to update bootstrap."
     end

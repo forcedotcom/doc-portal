@@ -1,0 +1,6 @@
+[submodule "vendor/twitter-bootstrap"]
+	path = vendor/twitter-bootstrap
+	url = https://github.com/twbs/bootstrap.git
+[submodule "vendor/fontawesome"]
+	path = vendor/fontawesome
+	url = https://github.com/FortAwesome/Font-Awesome.git
