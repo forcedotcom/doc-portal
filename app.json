@@ -9,5 +9,5 @@
         "newrelic:stark", 
         "papertrail:choklad"
     ],
-    "env": {"CLOUDANT_URL" : ""}
+    "env": {"CLOUDANT_URL" : "http://sanderson.cloudant.com"}
 }
