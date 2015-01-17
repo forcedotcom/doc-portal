@@ -1,0 +1,13 @@
+{
+    "name" : "Force.com Doc Portal",
+    "description" : "A simple documentation portal.",
+    "repository" : "https://github.com/forcedotcom/doc-portal",
+    "keywords" : ["documentation", "ruby"],
+    "success_url" : "/en-us/1.0/sample/welcome.htm",
+    "addons" : [
+        "memcachier:dev",
+        "newrelic:stark", 
+        "papertrail:choklad"
+    ],
+    "env": {"CLOUDANT_URL" : "http://ruchereltuddeseciescearm:taPpQpVl8o8JbyJtagrnyy1O@sanderson.cloudant.com"}
+}
