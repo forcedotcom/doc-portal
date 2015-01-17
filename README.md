@@ -51,6 +51,14 @@ This is a documentation portal written in Ruby, using Sinatra for routing and Co
 
 * Review the log in log/upload_*.txt
 
+* Validate it's working
+
+    `heroku open`
+
+    Username: redsofa-qa
+
+    Password: doc123456
+
 ## Customizing the look and feel
 The project depends on Twitter Bootstrap for its look and feel.  To customize, you need to do the following:
 * Install [lessc](http://lesscss.org/) and [uglifyjs](https://github.com/mishoo/UglifyJS) installed (the best way is to install them with [npm](https://npmjs.org/), then `npm install -g less uglify-js`)

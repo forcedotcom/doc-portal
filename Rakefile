@@ -48,14 +48,18 @@ end
 
 desc "Destroy the heroku database.  WARNING!!! - if you do this, your site will be down until you upload new content!"
 task :destroy_remote_db do
-  ENV['CLOUDANT_URL'] = `heroku config:get CLOUDANT_URL`.strip
-  Rake::Task["destroy_local_db"].invoke
+    Bundler.with_clean_env do 
+      ENV['CLOUDANT_URL'] = `heroku config:get CLOUDANT_URL`.strip
+    end
+    Rake::Task["destroy_local_db"].invoke
 end
 
 desc "Upload all the docs to the remote portal based on the CLOUDANT_URL value returned by Heroku for this app."
 task :update_remote_db do
   # @todo - test, do backticks work on Windows?
-  ENV['CLOUDANT_URL'] = `heroku config:get CLOUDANT_URL`.strip
+  Bundler.with_clean_env do 
+    ENV['CLOUDANT_URL'] = `heroku config:get CLOUDANT_URL`.strip
+  end
   Rake::Task["update_local_db"].invoke
 end
 
@@ -95,7 +99,7 @@ task :initialize_heroku, :app_name, :cloudant_url do |t, args|
       system({'NOEXEC'=>'skip'},"heroku addons:add memcachier:dev")
       system({'NOEXEC'=>'skip'},"heroku addons:add newrelic:stark")
       system({'NOEXEC'=>'skip'},"heroku addons:add papertrail:choklad")
-      system({'NOEXEC'=>'skip'},"heroku config:set CLOUDANT_URL=${cloudant_url}")
+      system({'NOEXEC'=>'skip'},"heroku config:set CLOUDANT_URL=#{cloudant_url}")
       system({'NOEXEC'=>'skip'},"git push heroku master")
       system({'NOEXEC'=>'skip'},"heroku config:add RACK_ENV=production")
       system({'NOEXEC'=>'skip'},"heroku config -s > .env")
