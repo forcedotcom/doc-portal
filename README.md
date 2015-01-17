@@ -12,6 +12,19 @@ This is a documentation portal written in Ruby, using Sinatra for routing and Co
 
 1. Install the gems in the Gemfile (I suggest using [bundle](http://gembundler.com/bundle_install.html))
 
+## Quick hosting using Heroku
+1. [Create a Heroku Account](https://signup.heroku.com)
+
+1. [Create a Cloudant Account](https://cloudant.com/sign-up/) 
+
+1. [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+1. Answer questions on that web page.  Ensure that you enter your the URL to your Cloudant database in the CLOUDANT_URL
+   field; for example, it should be something like
+   `http://<username>:<password>@sanderson.cloudant.com"}
+
+1. Deploy your files.
+
 ## Run it locally
 
 1. Set up your database
@@ -38,7 +51,9 @@ This is a documentation portal written in Ruby, using Sinatra for routing and Co
 1. Open your web browser and look at [http://localhost:5000]
     * If you are prompted to login, the username is redsofa-qa, password doc123456
 
-## Deploy it to heroku
+
+
+## Deploy it to heroku - manual
 
 1. [Create a Heroku Account](https://signup.heroku.com)
 
