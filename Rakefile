@@ -1,6 +1,7 @@
 require 'configliere'
 require 'ci/reporter/rake/rspec'      # use this if you're using RSpec
 require 'rake/clean'                  # Task to handle cleaning directories/files                
+require 'rbconfig'
 
 #Built in rake task to clean the content directory of everything
 CLEAN.include('content/**')
@@ -47,44 +48,62 @@ end
 
 desc "Destroy the heroku database.  WARNING!!! - if you do this, your site will be down until you upload new content!"
 task :destroy_remote_db do
-  ENV['CLOUDANT_URL'] = `heroku config:get CLOUDANT_URL`.strip
-  Rake::Task["destroy_local_db"].invoke
+    Bundler.with_clean_env do 
+      ENV['CLOUDANT_URL'] = `heroku config:get CLOUDANT_URL`.strip
+    end
+    Rake::Task["destroy_local_db"].invoke
 end
 
 desc "Upload all the docs to the remote portal based on the CLOUDANT_URL value returned by Heroku for this app."
 task :update_remote_db do
   # @todo - test, do backticks work on Windows?
-  ENV['CLOUDANT_URL'] = `heroku config:get CLOUDANT_URL`.strip
+  Bundler.with_clean_env do 
+    ENV['CLOUDANT_URL'] = `heroku config:get CLOUDANT_URL`.strip
+  end
   Rake::Task["update_local_db"].invoke
 end
 
 desc "Create the initial heroku environment"
-task :initialize_heroku, :app_name do |t, args|
+task :initialize_heroku, :app_name, :cloudant_url do |t, args|
   Settings.read('config/app_config.yaml')
   Settings.resolve!
+  puts "In the initialize step"
   # Steps:
   # 1. Test to see if heroku is installed.  If not, give instructions on how to do it - https://toolbelt.heroku.com/
   if command_exists?('heroku')
     puts "Creating the initial heroku app."
-    
-    app_name = args.app_name
-    if (!(app_name.nil?))
-      app_name = app_name.strip
-      puts "Creating an app with the name: #{app_name}"
-      system('heroku apps:create #{app_name}')
+    if args.cloudant_url
+      cloudant_url = args.cloudant_url
     else
-      sh 'heroku create'
-      puts "You can rename the app later using the command - heroku apps:rename newname"
+      cloudant_url = ENV['CLOUDANT_URL']
+      unless cloudant_url
+        STDOUT.puts "Please enter your CLOUDANT_URL information"
+        STDOUT.flush
+        cloudant_url = STDIN.gets.chomp
+      end
     end
-    
-    sh 'heroku addons:add cloudant:oxygen'
-    sh 'heroku addons:add memcachier:dev'
-    sh 'heroku addons:add newrelic:stark'
-    sh 'heroku addons:add papertrail:choklad'
-    sh 'git push heroku master'
-    sh 'heroku config:add RACK_ENV=production'
-    puts 'Adding heroku add-on environment variables to the .env file'
-    sh 'heroku config -s > .env'
+    # Should probably put a try/catch block here to validate that the URL works
+    unless cloudant_url
+      abort("You have to supply a URL for your database")
+    end
+    app_name = args.app_name
+    Bundler.with_clean_env do 
+      if (!(app_name.nil?))
+        app_name = app_name.strip
+        puts "Creating an app with the name: #{app_name}"
+        system({'NOEXEC'=>'skip'}, "heroku apps:create #{app_name}")
+      else
+        system({'NOEXEC'=>'skip'}, "heroku create")
+        puts "You didn't specify an app name, so using one picked by Heroku."
+      end
+      system({'NOEXEC'=>'skip'},"heroku addons:add memcachier:dev")
+      system({'NOEXEC'=>'skip'},"heroku addons:add newrelic:stark")
+      system({'NOEXEC'=>'skip'},"heroku addons:add papertrail:choklad")
+      system({'NOEXEC'=>'skip'},"heroku config:set CLOUDANT_URL=#{cloudant_url}")
+      system({'NOEXEC'=>'skip'},"git push heroku master")
+      system({'NOEXEC'=>'skip'},"heroku config:add RACK_ENV=production")
+      system({'NOEXEC'=>'skip'},"heroku config -s > .env")
+    end
   else
     puts "Install heroku from https://toolbelt.heroku.com"
   end
@@ -144,7 +163,7 @@ namespace :bootstrap do
   end
 
   def command_exists?(cmd)
-    if (Config::CONFIG['host_os'].include? "mswin")
+    if (RbConfig::CONFIG['host_os'].include? "mswin")
       `where.exe #{cmd}`
       $?.success?
     else

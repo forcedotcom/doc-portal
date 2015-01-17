@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "1.9.3"
+ruby "2.1.2"
 
 gem 'sinatra', require: 'sinatra/base'
 gem 'bundler', '~> 1.1'
@@ -19,14 +19,13 @@ gem 'newrelic_rpm'
 gem 'will_paginate', require: ['will_paginate', 'will_paginate/array']
 gem 'unicorn'
 gem 'logging'
-gem 'ci_reporter'
+gem 'ci_reporter_rspec'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rake'
   gem 'shotgun'
-  gem 'debugger'
   gem 'yard'
   gem 'yard-sinatra'
 end
@@ -34,7 +33,7 @@ end
 group :test do
   gem 'rspec'
   gem 'rack-test', require: 'rack/test'
-  gem 'debugger'
+  gem 'byebug'
   gem 'simplecov', :require => false
   gem 'simplecov-rcov'
   gem 'memcache_mock'
