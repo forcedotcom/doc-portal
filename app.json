@@ -9,5 +9,5 @@
         "newrelic:stark", 
         "papertrail:choklad"
     ],
-    "env": {"CLOUDANT_URL" : ""}
+    "env": {"CLOUDANT_URL" : "http://ruchereltuddeseciescearm:taPpQpVl8o8JbyJtagrnyy1O@sanderson.cloudant.com"}
 }
