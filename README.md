@@ -2,7 +2,21 @@
 
 This is a documentation portal written in Ruby, using Sinatra for routing and CouchDB for content storage and searching.  The UI is controlled by Twitter Bootstrap. 
 
-## Using the project 
+## Quick hosting using Heroku
+1. [Create a Heroku Account](https://signup.heroku.com)
+
+1. [Create a Cloudant Account](https://cloudant.com/sign-up/) 
+
+1. [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+1. Answer questions on that web page.  Use your own CLOUDANT database
+   URL, please.  It should be something like this:  `http://<username>:<password>@sanderson.cloudant.com`
+
+1. When the app is deploy, click View It.  Sign in with username
+   `redsofa-qa` password `doc123456`
+
+
+## Setting up the project to configure and customize
 
 1. [Set up git](https://help.github.com/articles/set-up-git#platform-all)
 
@@ -12,18 +26,6 @@ This is a documentation portal written in Ruby, using Sinatra for routing and Co
 
 1. Install the gems in the Gemfile (I suggest using [bundle](http://gembundler.com/bundle_install.html))
 
-## Quick hosting using Heroku
-1. [Create a Heroku Account](https://signup.heroku.com)
-
-1. [Create a Cloudant Account](https://cloudant.com/sign-up/) 
-
-1. [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-1. Answer questions on that web page.  Ensure that you enter your the URL to your Cloudant database in the CLOUDANT_URL
-   field; for example, it should be something like
-   `http://<username>:<password>@sanderson.cloudant.com"}
-
-1. Deploy your files.
 
 ## Run it locally
 
