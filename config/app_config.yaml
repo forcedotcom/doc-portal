@@ -76,4 +76,6 @@
 #Configurable username/password
 :LOGIN_USERNAME: "redsofa-qa"
 :LOGIN_PASSWORD: "doc123456"
-  
+
+#To disable login requirement, uncomment the next line
+#:LOGIN_REQUIRED: "false"
