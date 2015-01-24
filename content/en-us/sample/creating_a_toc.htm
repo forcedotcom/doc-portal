@@ -41,13 +41,67 @@
     
     <div class="body taskbody"><div class="shortdesc">Creating a table of contents for the portal is easy, but requires you follow a few rules.</div>
 
-        <ol class="ol steps enumList ">
+        <ul class="steps">
             <li class="li step">
-                <span class="ph cmd">Task step.</span>
+                <span class="ph cmd">The entire toc file is composed
+                of a <code>&lt;div&gt;</code> element, with the class
+                attribute set to <code>sidebar-nav</code> and the id
+                attribute set to <code>side-menu</code></span>
+            </li>
+            <li class="li step">
+                <span class="ph cmd">Within that div, you need a child <code>&lt;div&gt;</code> element, with the class
+                attribute set to <code>accordian</code> and the id
+                attribute set to <code>toc</code></span>
             </li>
 
-        </ol>
+            <li class="li step">
+                <span class="ph cmd">Each group is defined by
+                a <code>&lt;div&gt;</code> with the class set
+                to <code>accordion-group</code> and the id attribute
+                set to a unique id string.</span>
+            </li>
+            <li class="li step">
+                <span class="ph cmd">Within each group is a heading.  It is defined by
+                a <code>&lt;div&gt;</code> with the class set
+                to <code>accordion-heading accordion-toggle</code></span>
+            </li>
+            <li class="li step">
+                <span class="ph cmd">Within that div, you need
+                two <code>&lt;a&gt;</code> element.  The first is for
+                the text.  The second is for the +/- icon.  The
+                second must have its href set to <code>#subnav-[accordion-group-id]</code></span>
+            </li>
+        </ul>
+      <p>For example:
+        <pre>
+    &lt;div class="sidebar-nav" id="side-menu"&gt;
+      &lt;div class="accordion" id="toc"&gt;
+        &lt;div class="accordion-group" id="d2e38"&gt;
+            &lt;div class="accordion-heading accordion-toggle toc-level-1"&gt;
+                &lt;a class="toc-a-block" href="welcome.htm"&gt;
+                    &lt;span class="toc-text"&gt;Welcome&lt;/span&gt;
+                &lt;/a&gt;
+                &lt;a data-toggle="collapse" class="pull-right toc-plus-block"
+                    data-parent="#toc" href="#subnav-d2e38"&gt;
+                    &lt;i class="icon-plus toc-icon pull-right"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;</pre>
+        <ul class="steps">
+            <li class="li step">
+                <span class="ph cmd">As a sibling to the
+                accordion-heading is an <code>&lt;div&gt;</code> with the class set
+                to <code>accordion-body</code> and another unique id attribute.</span>
+            </li>
 
+            <li class="li step">
+                <span class="ph cmd">Within each accordion-body is a
+                div, with a child a element.  The href points to the
+                appropriate topic.</span>
+            </li>
+            <li class="li step">
+                <span class="ph cmd">Repeat as needed.</span>
+            </li>
+        </ul>
     </div>
 
 <div id="sfdc:seealso" class="related-links"></div>

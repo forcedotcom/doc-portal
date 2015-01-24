@@ -9,10 +9,13 @@ This is a documentation portal written in Ruby, using Sinatra for routing and Co
 
 1. [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-1. Answer questions on that web page.  Use your own CLOUDANT database
-   URL, please.  It should be something like this:  `http://<username>:<password>@sanderson.cloudant.com`
+1. Answer questions on that web page.  Use your own Cloudant database
+   URL, please.  It should be something like this:
+   `http://<username>:<password>@sanderson.cloudant.com`  You can use
+   the default for initial testing, but please update it to use your
+   Cloudant URL.
 
-1. When the app is deploy, click View It.  Sign in with username
+1. When the app is deployed, click View It.  Sign in with username
    `redsofa-qa` password `doc123456`
 
 

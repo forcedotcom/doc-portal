@@ -1,1 +1,51 @@
-<div class="sidebar-nav" id="side-menu"><div class="accordion" id="toc"><div class="accordion-group" id="d2e38"><div class="accordion-heading accordion-toggle toc-level-1"><a class="toc-a-block" href="welcome.htm"><span class="toc-text">Welcome!</span></a><a data-toggle="collapse" class="pull-right toc-plus-block" data-parent="#toc" href="#subnav-d2e38"><i class="icon-plus toc-icon pull-right"></i></a></div><div id="subnav-d2e38" class="accordion-body collapse"><div class="accordion-group" id="d2e68"><div class="accordion-heading accordion-toggle toc-level-2"><a class="toc-a-block" href="replace_sample_content.htm"><span class="toc-text">Replace sample content with your own</span></a><a data-toggle="collapse" class="pull-right toc-plus-block" data-parent="#d2e38" href="#subnav-d2e68"><i class="icon-plus toc-icon pull-right"></i></a></div><div id="subnav-d2e68" class="accordion-body collapse"><div id="creating_a_toc" class="toc-level-3 leaf toc-a-block"><a href="creating_a_toc.htm"><span class="toc-text">Creating a Table of Contents</span></a></div></div></div><div id="change_styling" class="toc-level-2 leaf toc-a-block"><a href="change_styling.htm"><span class="toc-text">Change the styling of the portal</span></a></div><div id="change_labels" class="toc-level-2 leaf toc-a-block"><a href="change_labels.htm"><span class="toc-text">Change labels in the portal</span></a></div><div id="portal_configuration" class="toc-level-2 leaf toc-a-block"><a href="portal_configuration.htm"><span class="toc-text">Portal Configuration</span></a></div></div></div></div></div>
+<div class="sidebar-nav" id="side-menu">
+    <div class="accordion" id="toc">
+        <div class="accordion-group" id="d2e38">
+            <div class="accordion-heading accordion-toggle toc-level-1">
+                <a class="toc-a-block" href="welcome.htm">
+                    <span class="toc-text">Welcome</span>
+                </a>
+                <a data-toggle="collapse" class="pull-right toc-plus-block"
+                    data-parent="#toc" href="#subnav-d2e38">
+                    <i class="icon-plus toc-icon pull-right"></i>
+                </a>
+            </div>
+            <div id="subnav-d2e38" class="accordion-body collapse">
+                <div class="accordion-group" id="d2e68">
+                    <div class="accordion-heading accordion-toggle toc-level-2">
+                        <a class="toc-a-block" href="replace_sample_content.htm">
+                            <span class="toc-text">Replace sample content with your
+                                own</span>
+                        </a>
+                        <a data-toggle="collapse" class="pull-right toc-plus-block"
+                            data-parent="#d2e38" href="#subnav-d2e68">
+                            <i class="icon-plus toc-icon pull-right"></i>
+                        </a>
+                    </div>
+                    <div id="subnav-d2e68" class="accordion-body collapse">
+                        <div id="creating_a_toc" class="toc-level-3 leaf toc-a-block">
+                            <a href="creating_a_toc.htm">
+                                <span class="toc-text">Creating a Table of Contents</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="change_styling" class="toc-level-2 leaf toc-a-block">
+                    <a href="change_styling.htm">
+                        <span class="toc-text">Change the styling of the portal</span>
+                    </a>
+                </div>
+                <div id="change_labels" class="toc-level-2 leaf toc-a-block">
+                    <a href="change_labels.htm">
+                        <span class="toc-text">Change labels in the portal</span>
+                    </a>
+                </div>
+                <div id="portal_configuration" class="toc-level-2 leaf toc-a-block"><a
+                        href="portal_configuration.htm">
+                        <span class="toc-text">Portal Configuration</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
