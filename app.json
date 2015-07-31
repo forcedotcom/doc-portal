@@ -6,7 +6,7 @@
     "success_url" : "/en-us/1.0/sample/welcome.htm",
     "addons" : [
         "memcachier:dev",
-        "newrelic:stark", 
+        "newrelic:wayne", 
         "papertrail:choklad"
     ],
     "env": {"CLOUDANT_URL" : "http://sanderson.cloudant.com"}
